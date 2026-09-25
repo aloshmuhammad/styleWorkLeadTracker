@@ -22,6 +22,20 @@ A simple Lead Tracker application built with React, TypeScript, Node.js, Express
 2. `npm install`
 3. Run `npm run dev` to start the React application using Vite.
 
+## Deployment Steps
+### Backend (Render.com)
+1. Push the repository to GitHub.
+2. Go to Render.com and create a new "Web Service".
+3. Connect the GitHub repo and select `LeadTrackerServer` as the root directory.
+4. Add environment variables: `MONGO_URI` (your MongoDB Atlas connection string).
+5. Deploy.
+
+### Frontend (Vercel)
+1. Go to Vercel and create a new project, selecting the GitHub repo.
+2. Edit the root directory to `LeadTrackerClient`.
+3. Vercel will automatically detect Vite. Click Deploy.
+4. Once deployed, update the `API_URL` in `src/api.ts` to point to your Render backend URL.
+
 ## Trade-offs
 - Used Tailwind CSS for rapid styling, though it introduces a slight learning curve for developers unfamiliar with utility-first CSS.
 - Handled state locally within components rather than Redux for simplicity, given the scale of the application.
