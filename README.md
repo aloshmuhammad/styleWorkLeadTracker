@@ -1,50 +1,43 @@
-# Lead Tracker Application
-
-## Overview
-A simple Lead Tracker application built with React, TypeScript, Node.js, Express, and MongoDB. The UI features a premium, modern dashboard design crafted with Tailwind CSS and Lucide icons.
+# Lead Tracker
 
 **Live Deployment URL:** [https://style-work-lead-tracker.vercel.app/](https://style-work-lead-tracker.vercel.app/)
 
+## Overview
+This is a Lead Tracker application I built for the Junior Full Stack Engineer assignment. It uses React (Vite + TypeScript) on the frontend and Node/Express with MongoDB on the backend. 
+
+I kept the UI clean and responsive using Tailwind CSS, and structured the backend with a standard MVC-like pattern (controllers, models, routes) so it's easy to scale if needed.
+
 ## Features
-- **Create Lead**: Add new leads directly from the dashboard.
-- **Update Lead Status**: Instantly update lead status (New, Contacted, Qualified, Lost).
-- **Search Leads**: Search for leads dynamically by name or email.
-- **List Leads**: View all leads in an organized, beautiful table layout with a KPI dashboard summary.
+- **Create Lead**: Add new leads directly via a modal.
+- **Update Lead Status**: Dropdown in the table to quickly shift leads between New, Contacted, Qualified, and Lost.
+- **Search**: Real-time filtering by name or email.
+- **List Leads**: A simple, mobile-responsive table layout with KPI cards at the top.
 
-## Setup Instructions
+## How to run locally
 
-### Backend (LeadTrackerServer)
-1. `cd LeadTrackerServer`
-2. `npm install`
-3. The `.env` file should contain your `MONGO_URI` (e.g. `MONGO_URI=mongodb+srv://...`). 
-4. Run `npm run dev` to start the backend on port 5000.
+### Backend
+1. Go into the backend folder: `cd LeadTrackerServer`
+2. Install dependencies: `npm install`
+3. Add your `.env` file with your Mongo string: `MONGO_URI=mongodb+srv://...`
+4. Start the server: `npm start` (Runs on port 5000)
 
-### Frontend (LeadTrackerClient)
-1. `cd LeadTrackerClient`
-2. `npm install`
-3. Run `npm run dev` to start the React application using Vite.
+### Frontend
+1. Go into the frontend folder: `cd LeadTrackerClient`
+2. Install dependencies: `npm install`
+3. Start the dev server: `npm run dev`
 
-## Deployment Steps
-### Backend (Render.com)
-1. Push the repository to GitHub.
-2. Go to Render.com and create a new "Web Service".
-3. Connect the GitHub repo and select `LeadTrackerServer` as the root directory.
-4. Add environment variables: `MONGO_URI` (your MongoDB Atlas connection string).
-5. Deploy.
+## Deployment
+I deployed the backend on Render and the frontend on Vercel. 
+- **Render Setup**: Connect the GitHub repo, set the root directory to `LeadTrackerServer`, add the `MONGO_URI` env var, and deploy.
+- **Vercel Setup**: Connect the repo, set the root directory to `LeadTrackerClient`, and let Vite handle the build. (I also added a `vercel.json` to handle client-side routing).
 
-### Frontend (Vercel)
-1. Go to Vercel and create a new project, selecting the GitHub repo.
-2. Edit the root directory to `LeadTrackerClient`.
-3. Vercel will automatically detect Vite. Click Deploy.
-4. Once deployed, update the `API_URL` in `src/api.ts` to point to your Render backend URL.
-
-## Trade-offs
-- Used Tailwind CSS for rapid styling, though it introduces a slight learning curve for developers unfamiliar with utility-first CSS.
-- Handled state locally within components rather than Redux for simplicity, given the scale of the application.
-- Utilized an all-in-one table view instead of pagination, assuming initial lead scale is small.
+## Trade-offs & Decisions
+- I went with Tailwind for styling because it's fast and keeps the component files self-contained without needing messy CSS modules.
+- State is managed locally in React (`useState` / `useEffect`) since the app is small. I didn't want to overcomplicate it with Redux.
+- All leads are loaded at once right now. If the dataset gets huge, I'd want to add server-side pagination later.
 
 ## Future Improvements
-- Add authentication (JWT) for secure access.
-- Implement server-side pagination for infinite scrolling.
-- Include data visualizations (e.g., Recharts) for the dashboard.
-- Add unit and integration tests (Jest/React Testing Library).
+- Add JWT authentication so not just anyone can edit the leads.
+- Implement pagination and infinite scrolling.
+- Add some charts/graphs to the dashboard using a library like Recharts.
+- Expand the test suite (I added a few basic Jest tests for the backend, but more coverage is always better).
