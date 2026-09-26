@@ -51,7 +51,7 @@ export default function LeadForm({ onClose, onLeadAdded }: LeadFormProps) {
               <input 
                 type="text" 
                 required 
-                className="input-field"
+                className="w-full px-4 py-2 border border-slate-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow"
                 value={formData.name}
                 onChange={(e) => setFormData({...formData, name: e.target.value})}
                 placeholder="John Doe"
@@ -63,7 +63,7 @@ export default function LeadForm({ onClose, onLeadAdded }: LeadFormProps) {
               <input 
                 type="email" 
                 required 
-                className="input-field"
+                className="w-full px-4 py-2 border border-slate-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow"
                 value={formData.email}
                 onChange={(e) => setFormData({...formData, email: e.target.value})}
                 placeholder="john@example.com"
@@ -73,9 +73,11 @@ export default function LeadForm({ onClose, onLeadAdded }: LeadFormProps) {
             <div>
               <label className="block text-sm font-semibold text-slate-700 mb-1">Phone</label>
               <input 
-                type="text" 
+                type="tel" 
                 required 
-                className="input-field"
+                pattern="^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$"
+                title="Please enter a valid phone number, e.g., +1 (555) 000-0000 or 1234567890"
+                className="w-full px-4 py-2 border border-slate-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow"
                 value={formData.phone}
                 onChange={(e) => setFormData({...formData, phone: e.target.value})}
                 placeholder="+1 (555) 000-0000"
@@ -85,7 +87,7 @@ export default function LeadForm({ onClose, onLeadAdded }: LeadFormProps) {
             <div>
               <label className="block text-sm font-semibold text-slate-700 mb-1">Initial Status</label>
               <select 
-                className="input-field appearance-none"
+                className="w-full px-4 py-2 border border-slate-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow appearance-none"
                 value={formData.status}
                 onChange={(e) => setFormData({...formData, status: e.target.value})}
               >

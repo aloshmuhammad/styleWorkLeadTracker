@@ -3,6 +3,8 @@
 ## Overview
 A simple Lead Tracker application built with React, TypeScript, Node.js, Express, and MongoDB. The UI features a premium, modern dashboard design crafted with Tailwind CSS and Lucide icons.
 
+**Live Deployment URL:** [https://style-work-lead-tracker.vercel.app/](https://style-work-lead-tracker.vercel.app/)
+
 ## Features
 - **Create Lead**: Add new leads directly from the dashboard.
 - **Update Lead Status**: Instantly update lead status (New, Contacted, Qualified, Lost).
