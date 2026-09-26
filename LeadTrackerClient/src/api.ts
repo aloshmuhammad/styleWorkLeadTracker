@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/leads';
+const API_URL = 'https://styleworkleadtracker.onrender.com/api/leads';
 
 export interface Lead {
   _id?: string;
